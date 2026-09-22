@@ -1,6 +1,8 @@
-# dexhand21s vendpr
+# dexhand_vendor
 
-- Upstream: [dexhand_sdk_cpp](https://github.com/DexRobot/dexhand_sdk_cpp.git)
+- Upstream: [dexhand_sdk_cpp](https://github.com/DexRobot/dexhand_sdk_cpp.git), pinned by commit in `CMakeLists.txt`.
+- Installs `libdexhand.so` and `libusbcanfd.so` (ZLG CANFD driver) plus headers. `libserial` and `libusb` are taken from the system (`rosdep install`).
+- Linux x86_64 only.
 
 ## Example usage:
 
