@@ -10,8 +10,7 @@ include(FetchContent)
 FetchContent_Declare(
     dexhand_sdk_cpp
     GIT_REPOSITORY  https://github.com/DexRobot/dexhand_sdk_cpp.git
-    GIT_TAG         main
-    GIT_SHALLOW     true
+    GIT_TAG         9c59f7b7b52be9447289704d333cd0ec9a618f88
 )
 
 FetchContent_MakeAvailable(dexhand_sdk_cpp)
@@ -25,11 +24,14 @@ install(
   DESTINATION include
 )
 
-# Install libraries
+# Install only the libraries that have no system package.
+# libserial and libusb come from apt (libserial-dev, libusb-1.0-0-dev).
 install(
   DIRECTORY "${DEXHAND_LIB_DIR}/"
   DESTINATION lib
-  FILES_MATCHING PATTERN "*.so*"
+  FILES_MATCHING
+    PATTERN "libdexhand.so"
+    PATTERN "libusbcanfd.so*"
 )
 
 ament_package(
